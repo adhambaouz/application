@@ -24,7 +24,6 @@ use Nette\Http;
  * @property      string $view
  * @property      string|bool $layout
  * @property-read \stdClass $payload
- * @property-read Nette\DI\Container $context
  * @property-read Nette\Http\Session $session
  * @property-read Nette\Security\User $user
  */
@@ -1290,6 +1289,7 @@ abstract class Presenter extends Control implements Application\IPresenter
 		if (!$this->context) {
 			throw new Nette\InvalidStateException('Context has not been set.');
 		}
+		trigger_error(__METHOD__ . '() is deprecated, use Dependency Injection.', E_USER_DEPRECATED);
 		return $this->context;
 	}
 
